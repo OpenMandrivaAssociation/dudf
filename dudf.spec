@@ -4,7 +4,7 @@ Version:	0.1
 Release:	%mkrel 1
 Group:		System/Base
 License:	GPL
-URL:		http://git.mandriva.com/?p=projects/dudf.git
+URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -21,9 +21,6 @@ The current package provides libdudf, a C++ library aiming at generating
 this DUDF file, together with a Perl wrapper, perl-dudfrpmstatus, which is
 used by urpmi.
 
-#### Each generated package follows
-
-#--- The libdudf package
 %define dudf_major 0
 %define libdudf %mklibname dudf %{dudf_major}
 
@@ -49,8 +46,6 @@ Library used for generating the Mandriva DUDF file.
 %defattr(-,root,root,-)
 %{_libdir}/libdudf.so
 
-#--- The perl-dudfrpmstatus package
-
 %package -n perl-dudfrpmstatus
 Summary:	Mandriva DUDF file generation library Perl wrapper
 Group:		System/Libraries
@@ -70,7 +65,6 @@ library.
 %{perl_sitearch}/dudfrpmstatus.pm
 %{perl_sitearch}/auto/dudfrpmstatus/dudfrpmstatus.so
 
-########### Now compile code!
 %prep
 %setup -q
 
