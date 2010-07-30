@@ -31,7 +31,7 @@ BuildRequires:	gcc-cpp
 BuildRequires:	jsoncpp-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	librpm-devel
-BuildRequires:	libopenssl1.0.0-devel
+BuildRequires:	libopenssl-devel
 Requires:	libxml2
 Requires:	jsoncpp
 Requires:	librpm
