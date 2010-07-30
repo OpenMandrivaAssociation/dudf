@@ -33,7 +33,6 @@ BuildRequires:	libxml2-devel
 BuildRequires:	librpm-devel
 BuildRequires:	libopenssl-devel
 Requires:	libxml2
-Requires:	jsoncpp
 Requires:	librpm
 Requires:	openssl
 Provides:	libdudf
