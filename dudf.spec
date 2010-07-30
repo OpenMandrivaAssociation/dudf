@@ -28,7 +28,7 @@ used by urpmi.
 Summary:	Mandriva DUDF file generation library
 Group:		System/Libraries
 BuildRequires:	gcc-cpp
-BuildRequires:	jsoncpp-devel
+BuildRequires:	libjsoncpp-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	librpm-devel
 BuildRequires:	libopenssl-devel
