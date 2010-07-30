@@ -1,6 +1,6 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
-Version:	0.1
+Version:	0.11
 Release:	%mkrel 1
 Group:		System/Base
 License:	GPL
