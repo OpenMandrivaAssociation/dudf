@@ -1,14 +1,18 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
-Version:	0.11
+Version:	0.12
 Release:	%mkrel 1
 Group:		System/Base
 License:	GPL
 URL:		http://www.mancoosi.org
 
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	%{name}-%{version}.tar.xz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	perl
+BuildRequires:	swig
+BuildRequires:	perl-devel
+BuildRequires:	jsoncpp-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	rpm-devel
 
 %description
 Mancoosi aims at achieving better management of software upgrades.
@@ -21,59 +25,57 @@ The current package provides libdudf, a C++ library aiming at generating
 this DUDF file, together with a Perl wrapper, perl-dudfrpmstatus, which is
 used by urpmi.
 
-%define dudf_major 0
-%define libdudf %mklibname dudf %{dudf_major}
+%define	major	1
+%define	libname	%mklibname %{name} %{major}
+%define	devname	%mklibname -d %{name} %{major}
 
-%package -n %{libdudf}
+%package -n	%{libname}
 Summary:	Mandriva DUDF file generation library
 Group:		System/Libraries
-BuildRequires:	gcc-cpp
-BuildRequires:	libjsoncpp-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	librpm-devel
-BuildRequires:	libopenssl-devel
-Requires:	libxml2
-Requires:	librpm
-Requires:	openssl
-Provides:	libdudf
-Provides:	libdudf.so
 
-%description -n %{libdudf}
+%description -n	%{libname}
 Library used for generating the Mandriva DUDF file.
 
-%files -n %{libdudf}
-%defattr(-,root,root,-)
-%{_libdir}/libdudf.so
+%package -n	%{devname}
+Summary:	Development header & library for Mandriva DUDF library
+Group:		Development/C++
+Provides:	%{name}-devel = %{EVRD}
+Requires:	%{libname} = %{EVRD}
 
-%package -n perl-dudfrpmstatus
+%description -n	%{devname}
+Development header & library for Mandriva DUDF file generation library.
+
+%package -n	perl-dudfrpmstatus
 Summary:	Mandriva DUDF file generation library Perl wrapper
 Group:		System/Libraries
-BuildRequires:	swig
-BuildRequires:	perl-devel
-Requires:	libdudf
-Provides:	perl-dudfrpmstatus
-Provides:	dudfrpmstatus.so
-Provides:	dudfrpmstatus.pm
 
-%description -n perl-dudfrpmstatus
+%description -n	perl-dudfrpmstatus
 Perl wrapper providing access to the Mandriva DUDF file generation
 library.
-
-%files -n perl-dudfrpmstatus
-%defattr(-,root,root,-)
-%{perl_sitearch}/dudfrpmstatus.pm
-%{perl_sitearch}/auto/dudfrpmstatus/dudfrpmstatus.so
 
 %prep
 %setup -q
 
 %build
-%make
+export LDFLAGS="%{ldflags}"
+%define	_disable_ld_no_undefined 1
+export PERL_LDFLAGS="%{ldflags}"
+%make CXXFLAGS="%{optflags}"
 
 %install
-%{__rm} -rf %buildroot
-%{__mkdir_p} %buildroot/%{_libdir}
-%{__make} DESTDIR=%buildroot LIBDIR=%{_libdir} install
+rm -rf %{buildroot}
+%makeinstall_std prefix=%{_prefix} libdir=%{_libdir}
 
 %clean
-%{__rm} -rf %buildroot
+rm -rf %{buildroot}
+
+%files -n %{libname}
+%{_libdir}/libdudf.so.%{major}*
+
+%files -n %{devname}
+%{_libdir}/libdudf.so
+%{_includedir}/dudf.h
+
+%files -n perl-dudfrpmstatus
+%{perl_sitearch}/dudfrpmstatus.pm
+%{perl_sitearch}/auto/dudfrpmstatus/dudfrpmstatus.so
