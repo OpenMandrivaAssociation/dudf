@@ -13,6 +13,7 @@ BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	rpm-devel
+BuildRequires:	libuuid-devel
 
 %description
 Mancoosi aims at achieving better management of software upgrades.
