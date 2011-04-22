@@ -1,7 +1,7 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
-Version:	0.12
-Release:	2
+Version:	0.13
+Release:	1
 Group:		System/Base
 License:	GPL
 URL:		http://www.mancoosi.org
@@ -12,7 +12,7 @@ BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	rpm-devel
-BuildRequires:	libuuid-devel
+BuildRequires:	ossp_uuid-devel
 
 %description
 Mancoosi aims at achieving better management of software upgrades.
