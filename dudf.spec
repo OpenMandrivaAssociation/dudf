@@ -1,13 +1,12 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Version:	0.12
-Release:	%mkrel 1
+Release:	2
 Group:		System/Base
 License:	GPL
 URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.xz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	swig
 BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel
@@ -64,11 +63,7 @@ export PERL_LDFLAGS="%{ldflags}"
 %make CXXFLAGS="%{optflags}"
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std prefix=%{_prefix} libdir=%{_libdir}
-
-%clean
-rm -rf %{buildroot}
 
 %files -n %{libname}
 %{_libdir}/libdudf.so.%{major}*
