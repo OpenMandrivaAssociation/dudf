@@ -63,6 +63,9 @@ export LDFLAGS="%{ldflags}"
 export PERL_LDFLAGS="%{ldflags}"
 %make CXXFLAGS="%{optflags}"
 
+%check
+make test
+
 %install
 %makeinstall_std prefix=%{_prefix} libdir=%{_libdir}
 
