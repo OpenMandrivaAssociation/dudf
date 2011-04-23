@@ -3,7 +3,7 @@ Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Projec
 Version:	0.15
 Release:	2
 Group:		System/Base
-License:	GPL
+License:	GPLv2+
 URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.xz
