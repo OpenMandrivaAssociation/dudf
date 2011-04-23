@@ -1,7 +1,7 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Version:	0.15
-Release:	1
+Release:	2
 Group:		System/Base
 License:	GPL
 URL:		http://www.mancoosi.org
@@ -48,6 +48,7 @@ Development header & library for Mandriva DUDF file generation library.
 %package -n	perl-dudfrpmstatus
 Summary:	Mandriva DUDF file generation library Perl wrapper
 Group:		System/Libraries
+%define		_requires_exceptions	devel(libjsoncpp(64bit))
 
 %description -n	perl-dudfrpmstatus
 Perl wrapper providing access to the Mandriva DUDF file generation
