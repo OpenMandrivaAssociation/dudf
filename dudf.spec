@@ -13,6 +13,7 @@ BuildRequires:	jsoncpp-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	rpm-devel
 BuildRequires:	ossp_uuid-devel
+BuildRequires:	cppunit-devel
 
 %description
 Mancoosi aims at achieving better management of software upgrades.
