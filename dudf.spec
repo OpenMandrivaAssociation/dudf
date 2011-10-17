@@ -12,7 +12,7 @@ BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel >= 0.5.0-11
 BuildRequires:	libxml2-devel
 BuildRequires:	rpm-devel
-BuildRequires:	ossp_uuid-devel
+BuildRequires:	ossp-uuid-devel
 BuildRequires:	cppunit-devel
 
 %description
