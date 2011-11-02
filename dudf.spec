@@ -1,12 +1,13 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Version:	0.15
-Release:	4
+Release:	5
 Group:		System/Base
 License:	GPLv2+
 URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.xz
+Patch0:		dudf-0.15-fix-test-linking.patch
 BuildRequires:	swig
 BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel >= 0.5.0-11
@@ -56,7 +57,7 @@ library.
 
 %prep
 %setup -q
-
+%patch0 -p1 -b .libs~
 %build
 export LDFLAGS="%{ldflags}"
 %define	_disable_ld_no_undefined 1
