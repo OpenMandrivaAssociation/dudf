@@ -15,6 +15,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	rpm-devel
 BuildRequires:	ossp-uuid-devel
 BuildRequires:	cppunit-devel
+BuildRequires:	perl-List-MoreUtils >= 0.320.0-4
 
 %description
 Mancoosi aims at achieving better management of software upgrades.
