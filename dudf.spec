@@ -8,6 +8,7 @@ URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.xz
 Patch0:		dudf-0.15-fix-test-linking.patch
+Patch1:		dudf-0.15-gcc4.7.patch
 BuildRequires:	swig
 BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel >= 0.5.0-11
@@ -58,6 +59,7 @@ library.
 %prep
 %setup -q
 %patch0 -p1 -b .libs~
+%patch1 -p1
 %build
 export LDFLAGS="%{ldflags}"
 %define	_disable_ld_no_undefined 1
