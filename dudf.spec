@@ -1,18 +1,20 @@
+%if %{_use_internal_dependency_generator}
+%define __noautoreq 'devel\\(libjsoncpp(.*)\\)'
+%endif
+
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Version:	0.15
-Release:	7
+Release:	6
 Group:		System/Base
 License:	GPLv2+
 URL:		http://www.mancoosi.org
 
 Source0:	%{name}-%{version}.tar.xz
-Patch0:		dudf-0.15-fix-test-linking.patch
-Patch1:		dudf-0.15-gcc4.7.patch
 BuildRequires:	swig
 BuildRequires:	perl-devel
 BuildRequires:	jsoncpp-devel >= 0.5.0-11
-BuildRequires:	libxml2-devel
+BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	rpm-devel
 BuildRequires:	ossp-uuid-devel
 BuildRequires:	cppunit-devel
@@ -58,16 +60,15 @@ library.
 
 %prep
 %setup -q
-%patch0 -p1 -b .libs~
-%patch1 -p1
+
 %build
 export LDFLAGS="%{ldflags}"
 %define	_disable_ld_no_undefined 1
 export PERL_LDFLAGS="%{ldflags}"
 %make CXXFLAGS="%{optflags}"
 
-%check
-make test
+# %check
+# make test
 
 %install
 %makeinstall_std prefix=%{_prefix} libdir=%{_libdir}
@@ -82,3 +83,49 @@ make test
 %files -n perl-dudfrpmstatus
 %{perl_sitearch}/dudfrpmstatus.pm
 %{perl_sitearch}/auto/dudfrpmstatus/dudfrpmstatus.so
+
+
+%changelog
+* Tue Apr 26 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.15-3
++ Revision: 659398
+- drop dependency filtering now that libjsoncpp has a proper soname
+- rebuild against new libjsoncpp with SONAME
+
+* Sun Apr 24 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.15-2
++ Revision: 658150
+- add cppunit-devel to buildrequires so that test suite may build
+- add %%check section
+- update license tag
+- filter out dependency on devel(libjsoncpp) for -devel package
+
+* Sat Apr 23 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.15-1
++ Revision: 657379
+- new version:
+  	o fix remaining memleaks
+  	o fix problem with parsing of dependency flags
+
+* Fri Apr 22 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.14-1
++ Revision: 656743
+- new version:
+  	o fix some linking issues
+
+* Fri Apr 22 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.13-1
++ Revision: 656716
+- new version:
+  	o use libossp-uuid rather than libuuid
+- rebuild against new perl
+- remove some obsolete rpm stuff
+
+* Sat Feb 05 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.12-1
++ Revision: 636296
+- add missing buildrequires
+- update to latest code
+- cleanup package
+- bump major
+- add -devel package
+
+* Fri Jul 30 2010 Stéphane Laurière <slauriere@mandriva.com> 0.11-1mdv2011.0
++ Revision: 563738
+- updated libopenssl-devel buildrequires
+- v0.1 release
+
