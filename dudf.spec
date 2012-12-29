@@ -5,7 +5,7 @@
 Name:		dudf
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Version:	0.15
-Release:	6
+Release:	7
 Group:		System/Base
 License:	GPLv2+
 URL:		http://www.mancoosi.org
@@ -86,6 +86,9 @@ export PERL_LDFLAGS="%{ldflags}"
 
 
 %changelog
+* Sat Dec 29 2012 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.15-7
+- rebuild against new perl-5.16.2
+
 * Tue Apr 26 2011 Per Øyvind Karlsen <peroyvind@mandriva.org> 0.15-3
 + Revision: 659398
 - drop dependency filtering now that libjsoncpp has a proper soname
