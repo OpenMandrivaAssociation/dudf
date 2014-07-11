@@ -9,7 +9,7 @@
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Name:		dudf
 Version:	0.15
-Release:	13
+Release:	14
 Group:		System/Base
 License:	GPLv2+
 Url:		http://www.mancoosi.org
