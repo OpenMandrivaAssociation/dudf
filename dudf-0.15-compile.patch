@@ -1,0 +1,31 @@
+--- dudf-0.15/dudf.cc.omv~	2015-03-17 16:44:55.806747851 +0100
++++ dudf-0.15/dudf.cc	2015-03-17 16:44:58.602771672 +0100
+@@ -25,7 +25,7 @@
+ #include <sys/param.h>
+ 
+ #include <uuid++.hh>
+-#include <jsoncpp/json.h>
++#include <json/json.h>
+ #include <libxml/parser.h>
+ #include <libxml/tree.h>
+ 
+--- dudf-0.15/dudf_example.cc.omv~	2015-03-17 16:46:32.061566925 +0100
++++ dudf-0.15/dudf_example.cc	2015-03-17 16:46:43.477663941 +0100
+@@ -1,5 +1,6 @@
+ #include "dudf.h"
+ #include <string>
++#include <iostream>
+ 
+ using namespace std;
+ 
+--- dudf-0.15/dudf.h.omv~	2015-03-17 16:44:12.769380969 +0100
++++ dudf-0.15/dudf.h	2015-03-17 16:44:18.279427965 +0100
+@@ -24,7 +24,7 @@
+ #include <tr1/cinttypes>
+ 
+ //For rpm DB Dump
+-#include <jsoncpp/json.h>
++#include <json/json.h>
+ #include <rpmtypes.h>
+ #include <rpmtag.h>
+ #include <rpmts.h>

@@ -9,11 +9,12 @@
 Summary:	Mandriva implementation of DUDF as part of the Mancoosi European Project
 Name:		dudf
 Version:	0.15
-Release:	16
+Release:	17
 Group:		System/Base
 License:	GPLv2+
 Url:		http://www.mancoosi.org
 Source0:	%{name}-%{version}.tar.xz
+Patch0:		dudf-0.15-compile.patch
 BuildRequires:	swig
 BuildRequires:	jsoncpp-devel >= 1.6.0-1
 BuildRequires:	perl-devel
@@ -59,12 +60,13 @@ library.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 export LDFLAGS="%{ldflags}"
 %define	_disable_ld_no_undefined 1
 export PERL_LDFLAGS="%{ldflags}"
-%make CXXFLAGS="%{optflags} -I/usr/include/json" CFLAGS="%{optflags} -I/usr/include/json"
+%make CXXFLAGS="%{optflags}" CFLAGS="%{optflags}"
 
 # %check
 # make test
