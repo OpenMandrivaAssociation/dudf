@@ -15,7 +15,7 @@ License:	GPLv2+
 Url:		http://www.mancoosi.org
 Source0:	%{name}-%{version}.tar.xz
 BuildRequires:	swig
-BuildRequires:	jsoncpp-devel >= 0.5.0-11
+BuildRequires:	jsoncpp-devel >= 1.6.0-1
 BuildRequires:	perl-devel
 BuildRequires:	pkgconfig(cppunit)
 BuildRequires:	pkgconfig(libxml-2.0)
@@ -64,7 +64,7 @@ library.
 export LDFLAGS="%{ldflags}"
 %define	_disable_ld_no_undefined 1
 export PERL_LDFLAGS="%{ldflags}"
-%make CXXFLAGS="%{optflags}"
+%make CXXFLAGS="%{optflags} -I/usr/include/json" CFLAGS="%{optflags} -I/usr/include/json"
 
 # %check
 # make test
