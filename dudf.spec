@@ -12,7 +12,7 @@ Version:	0.15
 Release:	19
 Group:		System/Base
 License:	GPLv2+
-Url:		http://www.mancoosi.org
+Url:		https://www.mancoosi.org
 Source0:	%{name}-%{version}.tar.xz
 Patch0:		dudf-0.15-compile.patch
 BuildRequires:	swig
