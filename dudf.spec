@@ -15,6 +15,7 @@ License:	GPLv2+
 Url:		https://www.mancoosi.org
 Source0:	%{name}-%{version}.tar.xz
 Patch0:		dudf-0.15-compile.patch
+BuildRequires:	make
 BuildRequires:	swig
 BuildRequires:	jsoncpp-devel >= 1.6.0-1
 BuildRequires:	perl-devel
